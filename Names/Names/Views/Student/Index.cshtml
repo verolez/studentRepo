@@ -5,7 +5,7 @@
 
 
 <div style="margin-top:69px;margin-bottom:50px">
-    <h5>Insert New Info</h5>
+    <h5 id="lbl">Insert New Info</h5>
     <input type="text" name="FirstName" value="" class="input-sm studentInfo" placeholder="FirstName" id="FirstName" />
     <input type="text" name="LastName" value="" class="input-sm studentInfo" placeholder="LastName" id="LastName" />
     <input type="button" id="btnSave" value="Save" />
@@ -31,8 +31,6 @@
 
 
     <script>
-
-        var studentRecords;
 
         var GetNames = () => {
             studentRecords = SendHttpRequest('GET', AppGlobal.baseUrl + 'student/getnames').then((response) => {
@@ -130,7 +128,6 @@
             let id = (e.target.getAttribute('data-id'));
             let formData = new FormData();
             formData.append('ID', id);
-            formData.append('command', 'delete')
             SendHttpRequest('POST', AppGlobal.baseUrl + 'student/removestudent', formData).then((response) => {
                
             })

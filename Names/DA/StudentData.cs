@@ -80,7 +80,7 @@ namespace DAL
             {
                 ParameterName = "@FirstName",
                 SqlDbType = SqlDbType.VarChar,
-                Value = name.LastName,
+                Value = name.FirstName,
                 Size = 50
             };
 
