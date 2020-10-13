@@ -1,0 +1,6 @@
+C:\Users\User\Desktop\Student\Names\UserDefinedClass\bin\Debug\UserDefinedClass.dll
+C:\Users\User\Desktop\Student\Names\UserDefinedClass\bin\Debug\UserDefinedClass.pdb
+C:\Users\User\Desktop\Student\Names\UserDefinedClass\obj\Debug\UserDefinedClass.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Student\Names\UserDefinedClass\obj\Debug\UserDefinedClass.dll
+C:\Users\User\Desktop\Student\Names\UserDefinedClass\obj\Debug\UserDefinedClass.pdb
+C:\Users\User\Desktop\Student\Names\UserDefinedClass\obj\Debug\UserDefinedClass.csprojAssemblyReference.cache

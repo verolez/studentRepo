@@ -1,0 +1,14 @@
+C:\Users\User\Desktop\Student\Names\BL\bin\Debug\BL.dll
+C:\Users\User\Desktop\Student\Names\BL\bin\Debug\BL.pdb
+C:\Users\User\Desktop\Student\Names\BL\bin\Debug\BO.dll
+C:\Users\User\Desktop\Student\Names\BL\bin\Debug\DA.dll
+C:\Users\User\Desktop\Student\Names\BL\bin\Debug\UserDefinedClass.dll
+C:\Users\User\Desktop\Student\Names\BL\bin\Debug\BO.pdb
+C:\Users\User\Desktop\Student\Names\BL\bin\Debug\DA.pdb
+C:\Users\User\Desktop\Student\Names\BL\bin\Debug\UserDefinedClass.pdb
+C:\Users\User\Desktop\Student\Names\BL\bin\Debug\UserDefinedClass.dll.config
+C:\Users\User\Desktop\Student\Names\BL\obj\Debug\BL.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Student\Names\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Student\Names\BL\obj\Debug\BL.csproj.CopyComplete
+C:\Users\User\Desktop\Student\Names\BL\obj\Debug\BL.dll
+C:\Users\User\Desktop\Student\Names\BL\obj\Debug\BL.pdb

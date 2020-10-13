@@ -1,0 +1,6 @@
+C:\Users\User\Desktop\Student\Names\BO\bin\Debug\BO.dll
+C:\Users\User\Desktop\Student\Names\BO\bin\Debug\BO.pdb
+C:\Users\User\Desktop\Student\Names\BO\obj\Debug\BO.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Student\Names\BO\obj\Debug\BO.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Student\Names\BO\obj\Debug\BO.dll
+C:\Users\User\Desktop\Student\Names\BO\obj\Debug\BO.pdb

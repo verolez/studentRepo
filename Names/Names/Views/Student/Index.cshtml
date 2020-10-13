@@ -1,0 +1,144 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div style="margin-top:69px;margin-bottom:50px">
+    <h5>Insert New Info</h5>
+    <input type="text" name="FirstName" value="" class="input-sm studentInfo" placeholder="FirstName" id="FirstName" />
+    <input type="text" name="LastName" value="" class="input-sm studentInfo" placeholder="LastName" id="LastName" />
+    <input type="button" id="btnSave" value="Save" />
+</div>
+
+<div>
+    <table class="table table-condensed" id="records">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>FirtName</th>
+                <th>LastName</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+
+@section Scripts {
+
+
+    <script>
+
+        var studentRecords;
+
+        var GetNames = () => {
+            studentRecords = SendHttpRequest('GET', AppGlobal.baseUrl + 'student/getnames').then((response) => {
+                return response;
+            });
+        };
+
+        GetNames();
+
+
+        var displayData = () => {
+
+            let tbody = document.querySelector('#records tbody');
+            tbody.innerHTML = '';
+            studentRecords.then((res) => {
+                if (res.length > 0) {
+                    for (let i = 0; i < res.length; i++) {
+                        let row = document.createElement('tr');
+                        for (let r = 0; r < (Object.keys(res[i]).length + 1); r++) {
+                            let cell = document.createElement('td');
+                            if (r === 0) {
+                                cell.textContent = i + 1;
+                                row.appendChild(cell);
+                            } else if (r != 0 && r < 3) {
+                                cell.textContent = res[i][Object.keys(res[i])[r]];
+                                cell.setAttribute('class', [Object.keys(res[i])[r]]);
+                                
+                                row.appendChild(cell);
+                            } else if (r === (Object.keys(res[i]).length)) {
+                                var btn = document.createElement('button');
+                                btn.className = "delete-button btn btn-danger btn-sm rounded-0";
+                                btn.setAttribute('data-id', `${res[i].ID}`);
+                                
+                                btn.innerHTML = "delete";
+                                btn.addEventListener('click', cmdDelete)
+
+                                var btnEdit = document.createElement('button');
+                                btnEdit.className = "edit-button btn btn-success btn-sm rounded-0";
+                                btnEdit.setAttribute('data-id', `${res[i].ID}`);
+                                btnEdit.innerHTML = "edit";
+                                btnEdit.addEventListener('click', cmdEdit)
+
+                                cell.appendChild(btnEdit);
+                                cell.appendChild(btn);
+                                row.appendChild(cell);
+                            }
+                        }
+                        tbody.appendChild(row);
+                    }
+                }
+            })
+        };
+        displayData();
+
+
+        var btnSave = document.querySelector('#btnSave');
+        var formData = new FormData();
+
+        btnSave.addEventListener('click', () => {
+            let value = btnSave.value;
+            
+            let studentInfo = document.querySelectorAll('.studentInfo');
+            for (let i = 0; i < studentInfo.length; i++) {
+                let name = studentInfo[i].getAttribute('name');
+                formData.append(name, studentInfo[i].value);
+            }
+            
+            if (value == "Save") {
+                SendHttpRequest('POST', AppGlobal.baseUrl + 'student/insertstudentName', formData).then((response) => {
+                    location.reload();
+                })
+            }  else {
+                
+                SendHttpRequest('POST', AppGlobal.baseUrl + 'student/UpdateStudent', formData).then((response) => {
+                    location.reload();
+                })
+            }
+
+            
+        })
+
+        var cmdEdit = (e) => {
+            let id = (e.target.getAttribute('data-id'));
+            formData.append("ID", id)
+            btnSave.value = "Update";
+            btnSave.style.background = "yellow";
+            var fName = e.target.closest('tr').querySelector('.FirstName').innerHTML;
+            var lName = e.target.closest('tr').querySelector('.LastName').innerHTML;
+
+            document.querySelector('#FirstName').value = fName;
+            document.querySelector('#LastName').value = lName;
+        }
+
+        var cmdDelete = (e) => {
+            let id = (e.target.getAttribute('data-id'));
+            let formData = new FormData();
+            formData.append('ID', id);
+            formData.append('command', 'delete')
+            SendHttpRequest('POST', AppGlobal.baseUrl + 'student/removestudent', formData).then((response) => {
+               
+            })
+
+            //displayData();
+            location.reload();
+        }
+       
+        
+    </script>
+}
